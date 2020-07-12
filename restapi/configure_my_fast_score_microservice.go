@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 
-	"myapi/restapi/operations"
+	"github.com/walterov/myapi/restapi/operations"
 )
 
 //go:generate swagger generate server --target ../../myapi --name MyFastScoreMicroservice --spec ../../../../api.yaml
