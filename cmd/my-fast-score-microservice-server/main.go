@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/waltero/myapi/restapi"
-	"github.com/waltero/myapi/restapi/operations"
+	"github.com/walterov/myapi/restapi"
+	"github.com/walterov/myapi/restapi/operations"
 
 	"github.com/go-openapi/loads"
 	flags "github.com/jessevdk/go-flags"
@@ -52,9 +52,9 @@ func main() {
 
 	host, exists := os.LookupEnv("HOST")
 	if exists {
-	    server.TLSHost = host
+		server.TLSHost = host
 	} else {
-	    server.TLSHost = "0.0.0.0" // or whatever the default value should be
+		server.TLSHost = "0.0.0.0" // or whatever the default value should be
 	}
 
 	if err := server.Serve(); err != nil {
