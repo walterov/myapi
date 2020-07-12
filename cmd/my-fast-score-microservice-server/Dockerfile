@@ -2,17 +2,17 @@ FROM golang:1.14.4-alpine3.12
 
 RUN apk add git
 
-COPY . /go/src/github.com/waltero/myapi/cmd/my-fast-score-microservice-server
-WORKDIR /go/src/github.com/waltero/myapi/restapi
+COPY . /go/src/github.com/walterov/myapi/cmd/my-fast-score-microservice-server
+WORKDIR /go/src/github.com/walterov/myapi/restapi
 
-WORKDIR /go/src/github.com/waltero/myapi/cmd/my-fast-score-microservice-server
+WORKDIR /go/src/github.com/walterov/myapi/cmd/my-fast-score-microservice-server
 
 RUN go get
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo
 
 FROM scratch
 
-COPY --from=0 /go/src/github.com/waltero/myapi/cmd/my-fast-score-microservice-server/my-fast-score-microservice-server /my-fast-score-microservice-server
+COPY --from=0 /go/src/github.com/walterov/myapi/cmd/my-fast-score-microservice-server/my-fast-score-microservice-server /my-fast-score-microservice-server
 COPY keys /keys
 
 ENV PORT 8123
