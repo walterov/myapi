@@ -1,6 +1,9 @@
-FROM golang:1.10.3-alpine3.8
+FROM golang:1.11-alpine AS build
 
-RUN apk add git
+# Install tools required for project
+# Run `docker build --no-cache .` to update dependencies
+RUN apk add --no-cache git
+RUN go get github.com/golang/dep/cmd/dep
 
 COPY . /go/src/github.com/walterov/myapi/cmd/my-fast-score-microservice-server
 WORKDIR /go/src/github.com/walterov/myapi/restapi
