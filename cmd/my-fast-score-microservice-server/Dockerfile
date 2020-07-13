@@ -5,8 +5,8 @@ FROM golang:1.11-alpine AS build
 RUN apk add --no-cache git
 RUN go get github.com/golang/dep/cmd/dep
 
-COPY ./.git /go/src/github.com/walterov/myapi
-COPY ./cmd/my-fast-score-microservice-server /go/src/github.com/walterov/myapi/cmd/my-fast-score-microservice-server
+COPY . /go/src/github.com/walterov/myapi
+COPY cmd/my-fast-score-microservice-server /go/src/github.com/walterov/myapi/cmd/my-fast-score-microservice-server
 WORKDIR /go/src/github.com/walterov/myapi/restapi
 # WORKDIR /go/src/github.com/walterov/myapi/restapi/operations
 
