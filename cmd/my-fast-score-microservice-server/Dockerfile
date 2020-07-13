@@ -7,7 +7,8 @@ RUN go get github.com/golang/dep/cmd/dep
 
 COPY . /go/src/github.com/walterov/myapi
 COPY . /go/src/github.com/walterov/myapi/cmd/my-fast-score-microservice-server
-# WORKDIR /go/src/github.com/walterov/myapi/restapi
+WORKDIR /go/src/github.com/walterov/myapi/restapi
+WORKDIR /go/src/github.com/walterov/myapi/restapi/operations
 
 WORKDIR /go/src/github.com/walterov/myapi/cmd/my-fast-score-microservice-server
 
